@@ -27,3 +27,16 @@ string body = await this._signatureService.ReadJsonBodyAsync(request.Body as Fil
 string publicKey = "e73ab23c5dd70727dfa360d4b6c18612de864768bd0d9e2cb1c507a02c3a227d";
 await SignatureFunctions.EncryptSignature(query, body, publicKey);
 ```
+
+
+# Feature Flag
+
+## Usage Backend
+```C#
+IFeatureFlag _feaureFlag = new FeatureFlag();
+IContextFeatureFlag ctx = new();
+if (_featureFlag.GetStatusFlag(ctx, 'feature-flag', true)) {
+    // enable
+}
+
+```
